@@ -1,0 +1,855 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Introduction to PN junctions &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PNjunction';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Worked example" href="workedexample.html" />
+    <link rel="prev" title="Introduction" href="Intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="Intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">PN JUNCTION</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction to PN junctions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workedexample.html">2. Worked example</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MOSFETS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Mosfet.html">3. MOSFET Transistor structure and operation I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workedexampleMosfet.html">4. Worked example</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">REFERENCES</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPNjunction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PNjunction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to PN junctions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-learning-outcome">1.1. Course learning outcome</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-week-13">1.2. Learning Objectives Week 13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#think-about-these-questions-when-watching-the-video">1.3. Think about these questions when watching the video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p-and-n-semiconductors">1.4. P and N semiconductors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doping">1.5. Doping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difussion">1.6. Difussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-n-type-and-p-type-semiconductors">1.7. The N-type and P-type semiconductors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-type-semiconductors">1.8. N-type semiconductors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p-type-semiconductors">1.9. P-type semiconductors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pn-junction">1.10. The PN junction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electrostatics">1.11. Electrostatics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#depletion-width">1.12. Depletion Width</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#band-bending">1.13. Band Bending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-v-characteristics">1.14. <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(V\)</span> Characteristics</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-pn-junctions">
+<h1><span class="section-number">1. </span>Introduction to PN junctions<a class="headerlink" href="#introduction-to-pn-junctions" title="Link to this heading">#</a></h1>
+<p>The <span class="math notranslate nohighlight">\(pn\)</span> junction is an essential component of nearly every semiconductor device. This chapter focuses on describing the basic principles of pn junction operation. To achieve this, we will review the characteristics and properties of <span class="math notranslate nohighlight">\(p\)</span>-type and <span class="math notranslate nohighlight">\(n\)</span>-type semiconductors, which will allow us to understand their individual functioning. Subsequently, we will extend these properties to comprehend the functioning of the pn junction when the two semiconductor types are combined.</p>
+<section id="course-learning-outcome">
+<h2><span class="section-number">1.1. </span>Course learning outcome<a class="headerlink" href="#course-learning-outcome" title="Link to this heading">#</a></h2>
+<p>By the end of the course, students will be able to analyze electronic circuits with diodes and transistors</p>
+</section>
+<section id="learning-objectives-week-13">
+<h2><span class="section-number">1.2. </span>Learning Objectives Week 13<a class="headerlink" href="#learning-objectives-week-13" title="Link to this heading">#</a></h2>
+<p>By the end of the week, students will be able to:</p>
+<ul class="simple">
+<li><p>Describe the pn junction and its main properties</p></li>
+<li><p>Describe the pn junction operation based on the appropriate band diagrams</p></li>
+<li><p>Sketch the <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(V\)</span> characteristic of a <span class="math notranslate nohighlight">\(pn\)</span> junction</p></li>
+</ul>
+</section>
+<section id="think-about-these-questions-when-watching-the-video">
+<h2><span class="section-number">1.3. </span>Think about these questions when watching the video<a class="headerlink" href="#think-about-these-questions-when-watching-the-video" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Interpret the differences between the p-type and n-type semiconductors.</p></li>
+<li><p>Describe the behavior of current according to the electron and hole changes in both the p-type and n-type semiconductors. Remember, electrons are the ones that move and they actually don’t move that far.</p></li>
+<li><p>Explain the electric field graph and the voltage in the pn juncion.</p></li>
+</ol>
+<p>You will be asked to answer them after watching it.</p>
+<center>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/983291/sp/98329100/embedIframeJs/uiconf_id/29134031/partner_id/983291?iframeembed=true&playerId=kaltura_player&entry_id=1_69hn2pek&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_g5og0jc2" width="708" height="502" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="ECE 295 - Lecture 82"></iframe>
+</center>
+<p><label for="freeform">Write the answers of the previous questions using maximum 150 characters for each. (Use your own words):</label>
+<br></p>
+<center>
+<textarea id="freeform" name="freeform" rows="4" cols="80">
+Answer here:
+</textarea>
+</center></section>
+<section id="p-and-n-semiconductors">
+<h2><span class="section-number">1.4. </span>P and N semiconductors<a class="headerlink" href="#p-and-n-semiconductors" title="Link to this heading">#</a></h2>
+<p>To begin understanding a <span class="math notranslate nohighlight">\(pn\)</span> junction functioning and properties, we need to review the concepts of: <strong>doping</strong> and <strong>diffusion</strong> which will help us to understand the  <strong>n-type</strong> semiconductor and the <strong>p-type</strong> semiconductor.</p>
+<p>The <strong>pn junction</strong> works under the collaboration of the <strong>n-type</strong> and <strong>p-type</strong> <strong>semiconductors</strong>.</p>
+</section>
+<section id="doping">
+<h2><span class="section-number">1.5. </span>Doping<a class="headerlink" href="#doping" title="Link to this heading">#</a></h2>
+<p>We are referring to the term “doping” as the process which we introduce voluntarly in a ceramic material an amount of atoms of other elements different from the ceramic, called imperfections. To produce a doping process, it is neccesary a set of requiments as for example similarity in atomic, electronic and energy characteristics discussed in the lecture video.</p>
+<p>In the case of doping of a semiconductor, for example, we could imagine a pure Silicon material, if we add voluntarly atoms of Phosphorus in the Silicon array, we will produce a <strong>n-type</strong> doping, where the material will gain extra electrons in the positions the Phosphorus atoms find.</p>
+<center>
+<img src="https://raw.githubusercontent.com/anyersonc/anyersonc.github.io/main/DopingImg.png" alt='This image presents the effect of doping Silicon. When doping an atom of Silicon is replaced by another atom. For example, if we replace a Silicon atom with a Phosphorous atom, as it has one extra electron, it will be free to move easily. On the other hand, if we change a Silicon atom for a Boron atom, as it lacks one electron, it will create what is called a hole.'>
+</center>
+<p>There is a variety of ceramic materials and dopants that exist nowadays, some include the dopage of Silicon with Arsenic, Arsenic doped with Germanium, and Germanium doped with phosphorous.</p>
+</section>
+<section id="difussion">
+<h2><span class="section-number">1.6. </span>Difussion<a class="headerlink" href="#difussion" title="Link to this heading">#</a></h2>
+<p>Difussion is modeled by Fick’s first law of difussion, in which <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> represents the flux of the quantity, <span class="math notranslate nohighlight">\(D\)</span> represents the diffusion coefficient that depends on the element and <span class="math notranslate nohighlight">\(\eta\)</span> represents the concentration of the quantity. The derivative represents a gradient, a difference for making the process to happen, without a gradient, or in other words, if the gradient is zero, the total flux will be zero.</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}=-D\frac{\mathrm{d}\eta}{\mathrm{d}x} \tag{10.6}\]</div>
+<p>In the case of electrons, we can model the flux of electrons by employing the same definition, however, it is important to address that it is a representation of the total movement of the electrons, and it is oversimplifying the short range of movement of electrons and its jumping between different levels.</p>
+<p>For the flux of electrons we can rewrite the equation as follows:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}_N=-D_N\frac{\mathrm{d}n}{\mathrm{d}x}  \tag{10.8}\]</div>
+<p>Whereas for the case of holes, we can rewrite the equation as follows:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}_P=-D_P\frac{\mathrm{d}p}{\mathrm{d}x}  \tag{10.8a}\]</div>
+<p>Then, if the flux of electrons is multiplied by the charge <span class="math notranslate nohighlight">\(-\mathrm{q}\)</span>, because the electrons posses negative charge, we have the <strong>current density</strong> <em>due to</em> <strong>difussion</strong> <span class="math notranslate nohighlight">\(J_{P\vert \mathrm{diff}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[J_{N\vert \mathrm{diff}}=-\mathrm{q}\mathcal{F}_N \tag{10.9}\]</div>
+<p>And for the holes, which possesses positive charge <span class="math notranslate nohighlight">\(\mathrm{q}\)</span> we have:</p>
+<div class="math notranslate nohighlight">
+\[J_{P\vert \mathrm{diff}}=\mathrm{q}\mathcal{F}_P   \tag{10.9a}\]</div>
+<p>By including equation <span class="math notranslate nohighlight">\((10.8)\)</span> into <span class="math notranslate nohighlight">\((10.9)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[J_{N\vert \mathrm{diff}}=\mathrm{q}D_N\frac{\mathrm{d}n}{\mathrm{d}x}  \tag{10.10}\]</div>
+<p>By including equation <span class="math notranslate nohighlight">\((10.8a)\)</span> into <span class="math notranslate nohighlight">\((10.9a)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[J_{P\vert \mathrm{diff}}=-\mathrm{q}D_P\frac{\mathrm{d}p}{\mathrm{d}x}  \tag{10.11}\]</div>
+</section>
+<section id="the-n-type-and-p-type-semiconductors">
+<h2><span class="section-number">1.7. </span>The N-type and P-type semiconductors<a class="headerlink" href="#the-n-type-and-p-type-semiconductors" title="Link to this heading">#</a></h2>
+</section>
+<section id="n-type-semiconductors">
+<h2><span class="section-number">1.8. </span>N-type semiconductors<a class="headerlink" href="#n-type-semiconductors" title="Link to this heading">#</a></h2>
+<p>The N-type semiconductor is the material obtained by employing a N-type doping as we recall from before. We could say that after the process, the material is now filled with atoms that possesses extra electrons. In an unbalanced semiconductor, more atoms of doping material are on one side of the semiconductor, creating a movement or flux of electrons, which will move to try to balance the charge. By doing that, it generates a current density caused by diffusion and creating an electric field.</p>
+<center>
+<img src="https://raw.githubusercontent.com/anyersonc/anyersonc.github.io/main/Animations4.gif" alt='This animation represents how the electrons move when a N type semiconductor is unbalanced. When it has more electrons in onse side (right) than the left, they want to balance the semiconductor, and they move for filling the holes.'>
+</center>
+<p>For the N-type semiconductor, the total current density for electrons are presented in the following formulas:</p>
+<div class="math notranslate nohighlight">
+\[ J_N = J_{N \vert drift} + J_{N \vert diff} \tag{10.15}\]</div>
+<p>Now expanding the terms by including the diffusion and drift elements:</p>
+<div class="math notranslate nohighlight">
+\[ J_N = q \mu_{n}n \mathcal{E}_x + q D_N\frac{dn}{dx} \tag{10.15a}\]</div>
+</section>
+<section id="p-type-semiconductors">
+<h2><span class="section-number">1.9. </span>P-type semiconductors<a class="headerlink" href="#p-type-semiconductors" title="Link to this heading">#</a></h2>
+<p>The p-type semiconductor has a similiar function as the N-type, the main difference is the holes doping of the material. The same process apply, as the holes are concentrated in one side, the material will balance this charge producing a holes flux density, generating a current density by diffusion, and an electric field.</p>
+<center>
+<img src="https://raw.githubusercontent.com/anyersonc/anyersonc.github.io/main/Animations5.gif" alt='This is an animation that explains how the holes move into the N semiconductor dopped.'>
+</center>
+<p>For the P-type semiconductor the total current density for holes are presented in the following formulas:</p>
+<div class="math notranslate nohighlight">
+\[ J_P = J_{P \vert drift} + J_{P \vert diff} \tag{10.16}\]</div>
+<p>Now expanding the terms by including the diffusion and drift elements:</p>
+<div class="math notranslate nohighlight">
+\[ J_P = q \mu_{p}p \mathcal{E}_x - q D_P\frac{dp}{dx} \tag{10.16a}\]</div>
+</section>
+<section id="the-pn-junction">
+<h2><span class="section-number">1.10. </span>The PN junction<a class="headerlink" href="#the-pn-junction" title="Link to this heading">#</a></h2>
+<p>In this example, the <span class="math notranslate nohighlight">\(p\)</span>-type semiconductor and the <span class="math notranslate nohighlight">\(n\)</span>-type semiconductor are connected physically. As we can observe, when the semiconductors are put together, they create a region in which the holes and the electrons encounter creating a <strong>depletion</strong> of <strong>charge</strong> in that part, which is called the <strong>Depletion Region</strong>.</p>
+<center>
+<img src="https://raw.githubusercontent.com/anyersonc/anyersonc.github.io/main/Animations6.gif" alt='Test number 4, This is an animation that explains how the electrons and holes move and create a mid band called depletion region, in which there is no charge and that produces a electric field and currents product of that electric field and the movement of the electrons.'>
+</center>
+<p><label for="freeform">Explain the phenomena present in the previous image. Also, discuss what are the characteristics and elements in the figure. (Write a short paragraph of maximum 200 words. Use your own words):</label>
+<br></p>
+<center>
+<textarea id="freeform" name="freeform" rows="4" cols="80">
+Answer here:
+</textarea>
+</center><p>The following equations, <span class="math notranslate nohighlight">\((11.1a)\)</span> and <span class="math notranslate nohighlight">\((11.1b)\)</span> presents the current density in a <span class="math notranslate nohighlight">\(pn\)</span>-junction, as we can notice, the current generated by the electron or holes drift is balanced by the electron or hole difussion:</p>
+<div class="math notranslate nohighlight">
+\[ J_N = J_{N \vert drift} + J_{N \vert diff} \tag{11.1a}\]</div>
+<div class="math notranslate nohighlight">
+\[ J_P = J_{P \vert drift} + J_{P \vert diff} \tag{11.1b}\]</div>
+<p>Additionally, we can write the charge concentration inside the device as the sum of the contributions due to each entities with charge, in this case: electrons, holes, ionized donors and ionized acceptors, as expressed in the equation <span class="math notranslate nohighlight">\((11.3)\)</span> note that the units will be charge/<span class="math notranslate nohighlight">\(\mathscr{cm}^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{charge}{cm^3} = qp-qn+qN_{D}^{+}-qN_{A}^{-} \tag{11.3} \]</div>
+<p>From the previous, note that <span class="math notranslate nohighlight">\(N_{D}^{+}\)</span> and <span class="math notranslate nohighlight">\(N_{A}^{-}\)</span> are the concentrations of ionized donors and acceptors respectively. Now, we have to discuss a new concept, Silicon at room temperature has sufficient energy for nearly all the dopants to ionize, and if we apply the total ionization assumption we have the equation <span class="math notranslate nohighlight">\((11.4)\)</span> and <span class="math notranslate nohighlight">\((11.5)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ N_{D}^{+}=N_{D} \tag{11.4}\]</div>
+<div class="math notranslate nohighlight">
+\[ N_{A}^{-}=N_{A} \tag{11.5}\]</div>
+<p>Now, taking into account the previous, we can substitute <span class="math notranslate nohighlight">\((11.4)\)</span> and <span class="math notranslate nohighlight">\((11.5)\)</span> into <span class="math notranslate nohighlight">\((11.3)\)</span> we arrive to the equation <span class="math notranslate nohighlight">\((11.6)\)</span> which expresses the total charge density in the device:</p>
+<div class="math notranslate nohighlight">
+\[\rho = q(p-n + N_{D}-N_{A}) \tag{11.6}\]</div>
+</section>
+<section id="electrostatics">
+<h2><span class="section-number">1.11. </span>Electrostatics<a class="headerlink" href="#electrostatics" title="Link to this heading">#</a></h2>
+<p>The following image represents the charge imbalance in a <span class="math notranslate nohighlight">\(pn\)</span>-junction. In the Figure (a) presents the junction dopping profile, the Figure (b) presents the charge density as a funcion of the position. We can observe, how outside the depletion region in the junction, the total charge density is zero, because the charges of the atoms (electrons and holes) are balanced due to the difussion process.</p>
+<center>
+<img src="https://raw.githubusercontent.com/anyersonc/anyersonc.github.io/main/electrostatics.png" alt='This image presents the effect of doping Silicon. When doping an atom of Silicon is replaced by another atom. For example, if we replace a Silicon atom with a Phosphorous atom, as it has one extra electron, it will be free to move easily. On the other hand, if we change a Silicon atom for a Boron atom, as it lacks one electron, it will create what is called a hole.'>
+</center>
+<p>Now, taking into account the charge density, it is possible to establish the electric field in the junction using the Gauss’s law presented in the equation <span class="math notranslate nohighlight">\((11.7)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \nabla \cdot \mathscr{E} = \frac{\rho}{\epsilon_r \epsilon_0}  \tag{11.7} \]</div>
+<p>If we neglect the effects of the edges in our ideal junction, the electric field has only the <span class="math notranslate nohighlight">\(x\)</span> dimension component, so, the equation <span class="math notranslate nohighlight">\((11.7)\)</span> could be expressed as <span class="math notranslate nohighlight">\((11.8)\)</span> where the <span class="math notranslate nohighlight">\(\epsilon_r\)</span> is the relative permittivity of the semiconductor and <span class="math notranslate nohighlight">\(\epsilon_0\)</span> is the permittivity of free space.</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\mathrm{d}\mathscr{E}}{\mathrm{d}x} = \frac{\rho}{\epsilon_r \epsilon_0}  \tag{11.8} \]</div>
+<p>The equation <span class="math notranslate nohighlight">\((11.8)\)</span> shows that the slope of the electric field is proportional to the charge density <span class="math notranslate nohighlight">\(\rho\)</span>, and if we take into account that the charge density is approximately zero outside the depletion region, the electric field there must be constant, which in fact, is stated that the electric field in a small distance from the outside edges of the depletion region is exactly zero. Then, if we define the <span class="math notranslate nohighlight">\(-x_p\)</span> and <span class="math notranslate nohighlight">\(x_n\)</span> to be the left and right sides of the depletion region, the electric field of the region can be found of integrating <span class="math notranslate nohighlight">\((11.8)\)</span>, and if we are interested in any point, called <span class="math notranslate nohighlight">\(f\)</span> then our integral will be defined bewteen <span class="math notranslate nohighlight">\(-x_p\)</span> to <span class="math notranslate nohighlight">\(f\)</span> as in the equation <span class="math notranslate nohighlight">\((11.9)\)</span>, which curve is presented in the Figure (c).</p>
+<div class="math notranslate nohighlight">
+\[ \mathscr{E}_x ( f )= \int_{-x_p}^{f} \frac{\rho}{\epsilon_r\epsilon_0} \mathrm{d}x \tag{11.9} \]</div>
+<p>Hence, the change in voltage with increasing <span class="math notranslate nohighlight">\(x\)</span> can be calculated in a path as <span class="math notranslate nohighlight">\((11.10)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ V ( f )- V(i)= -\int_{i}^{f} \mathscr{E}_x \mathrm{d}x \tag{11.10} \]</div>
+<p>Now, recalling that we set the electric field zero outside the depletion region, then we chose to set the voltage on the <span class="math notranslate nohighlight">\(p\)</span>-side of the depletion region to zero. and because we are integrating from <span class="math notranslate nohighlight">\(-x_p\)</span>, the previous equations then it is simplify as appears in the equation <span class="math notranslate nohighlight">\((11.11)\)</span> whose graph appears in the Figure (d).</p>
+<div class="math notranslate nohighlight">
+\[ V ( f )= -\int_{-x_p}^{f} \mathscr{E}_x \mathrm{d}x \tag{11.11}\]</div>
+<p>For instance, the potencial change acrros the depletion region under equilibrium is known as <strong>built-in potential</strong> <span class="math notranslate nohighlight">\(V_{\mathrm{bi}}\)</span> which can be calculated by employing the equation <span class="math notranslate nohighlight">\((11.12)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ V_{\mathrm{bi}} = V ( x_n)- V(-x_p)=-\int_{-x_p}^{x_n} \mathscr{E}_x \mathrm{d}x \tag{11.12}\]</div>
+<p>Now, we can work for deriving an expression for the <strong>built-in potential</strong> <span class="math notranslate nohighlight">\(V_{\mathrm{bi}}\)</span> that uses the concentrations, temperature and physical constants. For doing that, we recall the equation <span class="math notranslate nohighlight">\((11.13)\)</span> which represents equilibrium, so the currents must sum zero.</p>
+<div class="math notranslate nohighlight">
+\[ J_{N\vert drift} + J_{N\vert diff} \tag{11.13}\]</div>
+<p>Then, expanding the current components using equation <span class="math notranslate nohighlight">\((10.15a)\)</span> we found the equation <span class="math notranslate nohighlight">\((11.14)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ q\mu_nn\mathscr{E}_x + qD_n\frac{\mathrm{d}n}{\mathrm{d}x} \tag{11.14}\]</div>
+<p>If we solve for <span class="math notranslate nohighlight">\(\mathscr{E}_x\)</span> it results in the equation <span class="math notranslate nohighlight">\((11.15)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \mathscr{E}_x = \frac{-D_n}{\mu_n}\frac{1}{n}\frac{\mathrm{d}n}{\mathrm{d}x}  \tag{11.15}\]</div>
+<p>If we employ the Enstein’s relation given by <span class="math notranslate nohighlight">\(D_n / \mu_n = k T / q\)</span>, and replace <span class="math notranslate nohighlight">\(D_n\)</span> we find an expression that depends on physical constants, temperature and electron concentration shown in <span class="math notranslate nohighlight">\((11.16)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \mathscr{E}_x = \frac{-kT}{q}\frac{1}{n}\frac{\mathrm{d}n}{\mathrm{d}x}  \tag{11.16}\]</div>
+<p>Now, using this expression into the equation <span class="math notranslate nohighlight">\((11.12)\)</span> it yields to the equation <span class="math notranslate nohighlight">\((11.17)\)</span></p>
+<div class="math notranslate nohighlight">
+\[  V_{\mathrm{bi}} = \int_{-x_p}^{x_n} \frac{1}{n}\frac{\mathrm{d}n}{\mathrm{d}x} \mathrm{d}x \tag{11.17}\]</div>
+<p>Yet, if we use a change of variables of integration for solving the integral, we can rewrite it as appears in the equation <span class="math notranslate nohighlight">\((11.18)\)</span></p>
+<div class="math notranslate nohighlight">
+\[  V_{\mathrm{bi}} = \frac{kT}{q}\int_{n(-x_p)}^{n(x_n)} \frac{1}{n}\mathrm{d}x  \tag{11.18}\]</div>
+<p>Which we can solve obtaining the equation <span class="math notranslate nohighlight">\((11.19)\)</span></p>
+<div class="math notranslate nohighlight">
+\[  V_{\mathrm{bi}} = \frac{kT}{q}\ln{\frac{n(n_x)}{n(n(-x_p)}}  \tag{11.19}\]</div>
+<p>Now, we need to include the total ionization assumption, and by doing so we can see that <span class="math notranslate nohighlight">\(n\)</span> at the point <span class="math notranslate nohighlight">\(x_n\)</span> will lead to the equation <span class="math notranslate nohighlight">\((11.20)\)</span> and for the <span class="math notranslate nohighlight">\(p\)</span> at <span class="math notranslate nohighlight">\(-x_p\)</span> will lead to the equation <span class="math notranslate nohighlight">\((11.21)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ n(x_n)=N_D \tag{11.20}\]</div>
+<div class="math notranslate nohighlight">
+\[ p(-x_p)=N_A \tag{11.21}\]</div>
+<p>Then, if we use the <span class="math notranslate nohighlight">\(np\)</span> product rule, we can find the equation <span class="math notranslate nohighlight">\((11.22)\)</span></p>
+<div class="math notranslate nohighlight">
+\[ n(-x_p)=\frac{n_{i}^{2}}{p(-x_p)}=\frac{n_{i}^{2}}{N_A} \tag{11.22}\]</div>
+<p>And, finally, substituting these results back into <span class="math notranslate nohighlight">\((11.19)\)</span> we arrived to the equation <span class="math notranslate nohighlight">\((11.23)\)</span> which is an expression of <span class="math notranslate nohighlight">\(V_{\mathrm{bi}}\)</span> as a function of the device’s doping concentrations, temperature and physical constants.</p>
+<div class="math notranslate nohighlight">
+\[  V_{\mathrm{bi}}= \frac{kT}{q} \ln{ \frac{N_AN_D}{n_{i}^{2}}} \tag{11.23} \]</div>
+</section>
+<section id="depletion-width">
+<h2><span class="section-number">1.12. </span>Depletion Width<a class="headerlink" href="#depletion-width" title="Link to this heading">#</a></h2>
+<p>In general the charge density within the depletion region is not known ahead of time because it depends on the carrier concentrations p and n which in turn depend on the electric potential.
+In some cases, we may be able to write expressions for p and n as a function of x which allow for a closed form solution to (11.25), but more often we apply a simple approximation to the charge carriers known as the depletion approximation.</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\mathrm{d}\mathscr{E}_x}{\mathrm{d}x} = \frac{\rho}{\epsilon_r \epsilon_0} = \frac{q}{\epsilon_r\epsilon_0 (p-n+N_D-N_A)}  \tag{11.25}\]</div>
+<p>Under the depletion region approximation, the total charge density <span class="math notranslate nohighlight">\(\rho\)</span>  of a pn step junction takes on a squared off form relative to its exact value. Stated formally:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \rho = \Biggl\{\begin{array}{rc}
+0 &amp; \mathrm{if} \space x \leq -x_p \mathrm{or} \space x \geq x_n
+\\ -qN_A &amp; \mathrm{if} \space -x_p \leq x \leq 0 \\
+qN_D &amp; \mathrm{if} \space 0 \leq x \leq x_n
+\end{array} \end{split}\]</div>
+<p>To completely specify the depletion approximation, we need to establish  boundaries on each side of the junction. We will begin by first working out the widths <span class="math notranslate nohighlight">\(x_p\)</span> and <span class="math notranslate nohighlight">\(x_n\)</span> relative to each other. The width of the depletion region on each side of the junction is dependent on the relative doping level between the two sides such that the p-side and n-side widths will only be equal. The excess negative charge on the p-side of the junction must precisely balance the excess positive charge on the n-side of the junction.</p>
+<div class="math notranslate nohighlight">
+\[ Q_P^{-} = Q_n^{+} \tag{11.27}\]</div>
+<p>Due to the depletion approximation, these excess charges can be expressed as the charge density multiplied by the volume of the depletion region on each side of the junction.</p>
+<div class="math notranslate nohighlight">
+\[ qN_AV_\mathrm{P}=qN_DV_n \tag{11.28}\]</div>
+<p>The volume of the depletion region on a given side of the junction is equal to the depletion width of that side times the cross-sectional area of the device, which is assumed to be constant.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{array}{ll} V_\mathrm{P}=x_\mathrm{P}A, &amp; V_\mathrm{n}=x_\mathrm{n}A \end{array} \tag{11.29}\]</div>
+<p>By dropping the area from each side of the equation, the charge balance between each side can be expressed as</p>
+<div class="math notranslate nohighlight">
+\[ qN_Ax_\mathrm{P} = qN_Dx_\mathrm{n} \tag{11.30}\]</div>
+<p>Finally we can relate the relative widths of the depletion region on each side of the junction by solving for <span class="math notranslate nohighlight">\(x_n\)</span> in terms of <span class="math notranslate nohighlight">\(x_p\)</span> which results in</p>
+<div class="math notranslate nohighlight">
+\[ x_\mathrm{n} = \frac{N_A}{N_D}x_\mathrm{P} \tag{11.31}\]</div>
+<p>At this point we have established one equation relating xp and xn (11.30), but because we have two unknowns, we require a second independent equation relating them in order to locate both endpoints of the depletion region. A second equation relating <span class="math notranslate nohighlight">\(x_p\)</span> and <span class="math notranslate nohighlight">\(x_n\)</span> can be found by considering the electric potential within the junction. In order to determine the electric potential, we will first need to establish the electric field, which can be calculated from the charge distribution. We begin by substituting the charge density we found using the depletion approximation into the one dimensional version of Gauss’s law in differential form from (11.25).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \frac{\mathrm{d}\mathscr{E}_x}{\mathrm{d}x} = \frac{\rho}{\epsilon_r \epsilon_0} = \Biggl\{\begin{array}{rc}
+0 &amp; \mathrm{if} \space x \leq -x_p \mathrm{or} \space x \geq x_n
+\\ \dfrac{-qN_A}{\epsilon_r\epsilon_0} &amp; \mathrm{if} \space -x_p \leq x \leq 0 \\
+\mathrm{qN_D}{\epsilon_r\epsilon_0} &amp; \mathrm{if}\space  0  \leq x \leq x_n
+\end{array} \end{split}\]</div>
+<p>The electric field is zero and constant outside of the depletion region. Thus the electric field must be zero at the depletion region edges -<span class="math notranslate nohighlight">\(x_p\)</span> and <span class="math notranslate nohighlight">\(x_n\)</span>. Then for the region between <span class="math notranslate nohighlight">\(-x_p\)</span> and <span class="math notranslate nohighlight">\(0\)</span> we have</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\mathrm{d}\mathscr{E}_x}{\mathrm{d}x} = -\frac{qN_A}{\epsilon_r\epsilon_0} \tag{11.34}\]</div>
+<p>We solve for <span class="math notranslate nohighlight">\(\mathscr{E}_x(x)\)</span> in the interval by separating variables and integrating each side. The lower bounds are fixed at <span class="math notranslate nohighlight">\(\mathscr{E}_x, = -x_p\)</span> while the upper bounds vary through the extent of the interval.</p>
+<div class="math notranslate nohighlight">
+\[ \int_{0}^{\mathscr{E}_x(x)} \mathrm{d}\dot{\mathscr{E}_x} = \int_{-x_p}^{x} \frac{-qN_A}{\epsilon_r\epsilon_0} \mathrm{d}\dot{x} \tag{11.35}\]</div>
+<p>Completing the integration yields</p>
+<div class="math notranslate nohighlight">
+\[\begin{array}{ll} \mathscr{E}_x(x) = \dfrac{-qN_A}{\epsilon_r\epsilon_0}(x +x_\mathrm{p}), &amp; \mathrm{for} \space -x_\mathrm{P} \leq x \leq 0 \end{array} \tag{11.36}\]</div>
+<p>Next, for the region between 0 and xn we have</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\mathrm{d}\mathscr{E}_x}{\mathrm{d}x} = \frac{qN_D}{\epsilon_r\epsilon_0} \tag{11.37}\]</div>
+<p>Again separating variables and integrating each side but this time fixing the upper bounds at <span class="math notranslate nohighlight">\(\mathscr{E}_x=0, x=x_n\)</span> and letting the lower bounds vary throughout the interval we have</p>
+<div class="math notranslate nohighlight">
+\[ \int_{\mathscr{E}_x(x)}^{0} \mathrm{d}\dot{\mathscr{E}_x} = \int_{x}^{x_n} \frac{-qN_D}{\epsilon_r\epsilon_0} \mathrm{d}\dot{x} \tag{11.38}\]</div>
+<p>Completing the integration yields</p>
+<div class="math notranslate nohighlight">
+\[\begin{array}{ll} \mathscr{E}_x(x) = \dfrac{-qN_D}{\epsilon_r\epsilon_0}(x_\mathrm{n}-x), &amp; \mathrm{for} \space 0 \leq x \leq x_\mathrm{n} \end{array} \tag{11.39}\]</div>
+<p>From the resulting expressions in equations (11.36) and (11.39) we see that the electric field in the depletion region is always negative and that it decreases linearly from <span class="math notranslate nohighlight">\(x = -x_p\)</span> until <span class="math notranslate nohighlight">\(x=0\)</span> and then increases linearly until <span class="math notranslate nohighlight">\(x=x_n\)</span>. If we assume that the electric field at the inflection point <span class="math notranslate nohighlight">\((x = 0)\)</span> is continuous, this means that (11.36) and (11.39) must be equal at x = 0. Hence,</p>
+<div class="math notranslate nohighlight">
+\[\frac{-qN_A}{\epsilon_r\epsilon_0}x_\mathrm{P} = \frac{-qN_D}{\epsilon_r\epsilon_0}x_\mathrm{n} \tag{11.40}\]</div>
+<p>which can be simplified to</p>
+<div class="math notranslate nohighlight">
+\[qN_Ax_\mathrm{P} = qN_Dx_\mathrm{n} \tag{11.41}\]</div>
+<p>Now we define the electric potential in the <span class="math notranslate nohighlight">\(x \leq -x_p\)</span> region to be zero volts. Due to the piecewise linear nature of our solution for <span class="math notranslate nohighlight">\(\mathscr{E}_x\)</span>, we break the integral of (11.10) into intervals. For the interval on the <span class="math notranslate nohighlight">\(p\)</span>-side of the junction, we let the upper bound vary through the extent of the interval resulting in</p>
+<div class="math notranslate nohighlight">
+\[ V ( x ) - V ( -x_\mathrm{P} ) = V ( x ) - 0 = \int_{-x_\mathrm{P}}^{x} \dfrac{qN_A}{\epsilon_r\epsilon_0} ( x_\mathrm{P} + \dot{x}) \mathrm{d}x \tag{11.42}\]</div>
+<p>which upon completing the integration provides</p>
+<div class="math notranslate nohighlight">
+\[\begin{array}{ll} V ( x ) = \dfrac{qN_A}{2\epsilon_r\epsilon_0}(x_\mathrm{p}+x)^2, &amp; \mathrm{for} \space -x_\mathrm{P} \leq x \leq 0 \end{array} \tag{11.43}\]</div>
+<p>For the interval on the <span class="math notranslate nohighlight">\(n\)</span>-side of the junction we vary the lower bound throughout the interval such that</p>
+<div class="math notranslate nohighlight">
+\[ V ( x_\mathrm{n} ) - V ( x ) = V_{\mathrm{bi}} - V ( x ) = \int_{-x_\mathrm{P}}^{x} \dfrac{qN_D}{\epsilon_r\epsilon_0} ( x_\mathrm{n} - \dot{x}) \mathrm{d}x \tag{11.44}\]</div>
+<p>which upon completing the integration provides</p>
+<div class="math notranslate nohighlight">
+\[\begin{array}{ll} V ( x ) =  V_{\mathrm{bi}} - \dfrac{qN_D}{2\epsilon_r\epsilon_0}(x_\mathrm{n}-x)^2, &amp; \mathrm{for} \space 0 \leq x \leq x_\mathrm{n} \end{array} \tag{11.45}\]</div>
+<p>Since the voltage is continuous we can set (11.43) equal to (11.45) at <span class="math notranslate nohighlight">\(x=0\)</span> to arrive at a second equation relating <span class="math notranslate nohighlight">\(x_p\)</span> and <span class="math notranslate nohighlight">\(x_n\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ \frac{qN_A}{2\epsilon_r\epsilon_0} x_\mathrm{P}^2 = V_\mathrm{bi}-\frac{qN_D}{2\epsilon_r\epsilon_0}x_n^2 \tag{11.46}\]</div>
+<p>Using (11.31) and (11.46) we can now express the <span class="math notranslate nohighlight">\(p-\)</span>side and <span class="math notranslate nohighlight">\(n-\)</span>side depletion widths (<span class="math notranslate nohighlight">\(x_p\)</span> and <span class="math notranslate nohighlight">\(x_n\)</span>) in terms of dopant levels.We begin by substituting the solution for <span class="math notranslate nohighlight">\(x_n\)</span> in terms of <span class="math notranslate nohighlight">\(x_p\)</span> from (11.31) into (11.46) resulting in</p>
+<div class="math notranslate nohighlight">
+\[ \frac{qN_A}{2\epsilon_r\epsilon_0} x_\mathrm{P}^2 = V_\mathrm{bi}-\frac{qN_D}{2\epsilon_r\epsilon_0}\frac{N_A^2}{N_D^2}x_\mathrm{P}^2 \tag{11.47}\]</div>
+<p>With a bit more algebra we can solve for <span class="math notranslate nohighlight">\(x_p\)</span> to find</p>
+<div class="math notranslate nohighlight">
+\[ x_\mathrm{P} = \left[ \frac{2\epsilon_r\epsilon_0}{q} \left( \frac{N_D}{N_A (N_A + N_D )} \right) V_\mathrm{bi} \right]^{1/2} \tag{11.48}\]</div>
+<p>Then by using (11.31) again we can also solve for <span class="math notranslate nohighlight">\(x_n\)</span> to find</p>
+<div class="math notranslate nohighlight">
+\[ x_\mathrm{n} = \frac{N_A}{N_D}x_\mathrm{P} = \left[ \frac{2\epsilon_r\epsilon_0}{q} \left( \frac{N_A}{N_D (N_A + N_D )} \right) V_\mathrm{bi} \right]^{1/2} \tag{11.49}\]</div>
+<p>By expressing the depletion width on each side of the junction in terms of the dopant levels and physical parameters in (11.48) and(11.49),we have completely specified the depletion approximation.</p>
+<p>The total depletion region width, <span class="math notranslate nohighlight">\(W\)</span> can be defined as the sum of the <span class="math notranslate nohighlight">\(p\)</span>-side and <span class="math notranslate nohighlight">\(n\)</span>-side depletion region widths.</p>
+<div class="math notranslate nohighlight">
+\[ W = x_\mathrm{P} + x_\mathrm{n} \tag{11.50}\]</div>
+<p>By choosing a common denominator in the expressions for <span class="math notranslate nohighlight">\(x_p\)</span> and <span class="math notranslate nohighlight">\(x_n\)</span>, and combining like terms, (11.50) can be written as</p>
+<div class="math notranslate nohighlight">
+\[ W = \left[ \frac{2\epsilon_r\epsilon_0}{q}\right]^{1/2} \left( \frac{N_D+N_A}{[N_AN_D (N_A + N_D )]^{1/2}} \right) V_\mathrm{bi}^{1/2}  \tag{11.51}\]</div>
+<p>Then by cancelling a factor of <span class="math notranslate nohighlight">\(\sqrt{N_A + N_D}\)</span> and grouping all the terms under same square root we arrive at</p>
+<div class="math notranslate nohighlight">
+\[ W = \left[ \frac{2\epsilon_r\epsilon_0}{q} \left( \frac{N_D+N_A}{N_AN_D} \right) V_\mathrm{bi} \right]^{1/2}  \tag{11.52}\]</div>
+</section>
+<section id="band-bending">
+<h2><span class="section-number">1.13. </span>Band Bending<a class="headerlink" href="#band-bending" title="Link to this heading">#</a></h2>
+<p>To begin we relate voltage to energy by noting that the electric potential <span class="math notranslate nohighlight">\(V\)</span> is equivalent to the electric potential energy (P.E.) per unit of charge at a given point in an electric field. Hence,</p>
+<div class="math notranslate nohighlight">
+\[ V= \frac{P.E.}{q} \tag{11.53}\]</div>
+<p>where <span class="math notranslate nohighlight">\(q\)</span> is the elementary charge <span class="math notranslate nohighlight">\((1.6 \times 10^{-19} C)\)</span>. For an electron with charge <span class="math notranslate nohighlight">\(-q\)</span> we can write its electrical potential energy in terms of the electric potential as</p>
+<div class="math notranslate nohighlight">
+\[ P.E. = -qV \tag{11.54} \]</div>
+</section>
+<section id="i-v-characteristics">
+<h2><span class="section-number">1.14. </span><span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(V\)</span> Characteristics<a class="headerlink" href="#i-v-characteristics" title="Link to this heading">#</a></h2>
+<p>The difference in potential between the <span class="math notranslate nohighlight">\(n\)</span>-side and the <span class="math notranslate nohighlight">\(p\)</span>-side of the junction is given by <span class="math notranslate nohighlight">\(V_{bi} - V_A\)</span> from which we see that a positive applied voltage reduces the potential difference between the two sides whereas a negative applied voltage increases it. A positive applied voltage decreases the depletion width whereas a negative applied voltage increases it. Equations (11.48), (11.49), and (11.52) for depletion widths in an isolated <span class="math notranslate nohighlight">\(pn\)</span> junction can be generalized to account for the applied voltage by replacing <span class="math notranslate nohighlight">\(V_{bi}\)</span> in each equation with a <span class="math notranslate nohighlight">\(V_{bi} - V_A\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[ x_p = \left[ \frac{2\epsilon_r\epsilon_0}{q} \frac{N_D}{N_A(N_A + N_D)}(Vbi - V_A)\right]^{1/2} \tag{11.55} ,\]</div>
+<div class="math notranslate nohighlight">
+\[ x_n = \left[ \frac{2\epsilon_r\epsilon_0}{q} \frac{N_A}{N_D(N_A + N_D)}(Vbi - V_A)\right]^{1/2} \tag{11.56} ,\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[ W = \left[ \frac{2\epsilon_r\epsilon_0}{q} \left (\frac{N_A + N_D}{N_AN_D}\right )(Vbi - V_A)\right]^{1/2} \tag{11.57}\]</div>
+<p>Mathematically, the complite <span class="math notranslate nohighlight">\(i-v\)</span> characteristic curve for an ideal <span class="math notranslate nohighlight">\(pn\)</span> junction diode is given by</p>
+<div class="math notranslate nohighlight">
+\[ I=I_0 (e^{\frac{qV_A}{kT}}-1) \tag{11.58}\]</div>
+<hr class="docutils" />
+<p>Now that you have finished the <strong>Introduction to PN junctions</strong>, please select the Next button to navigate to the <strong>Worked example</strong>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="workedexample.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Worked example</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-learning-outcome">1.1. Course learning outcome</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives-week-13">1.2. Learning Objectives Week 13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#think-about-these-questions-when-watching-the-video">1.3. Think about these questions when watching the video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p-and-n-semiconductors">1.4. P and N semiconductors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doping">1.5. Doping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difussion">1.6. Difussion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-n-type-and-p-type-semiconductors">1.7. The N-type and P-type semiconductors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-type-semiconductors">1.8. N-type semiconductors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#p-type-semiconductors">1.9. P-type semiconductors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pn-junction">1.10. The PN junction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electrostatics">1.11. Electrostatics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#depletion-width">1.12. Depletion Width</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#band-bending">1.13. Band Bending</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-v-characteristics">1.14. <span class="math notranslate nohighlight">\(I\)</span>-<span class="math notranslate nohighlight">\(V\)</span> Characteristics</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
